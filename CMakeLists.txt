@@ -19,7 +19,7 @@ include(FetchContent)
 if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.28)
     Fetchcontent_Declare(
         Utils
-        SOURCE_DIR "/home/wjlim/utils"
+        GIT_REPOSITORY https://github.com/wjnlim/utils.git
         EXCLUDE_FROM_ALL
     )
     FetchContent_MakeAvailable(Utils)
@@ -27,7 +27,7 @@ if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.28)
 else()
     Fetchcontent_Declare(
         Utils
-        SOURCE_DIR "/home/wjlim/utils"
+        GIT_REPOSITORY https://github.com/wjnlim/utils.git
     )
     FetchContent_GetProperties(Utils)
     if(NOT Utils_POPULATED)
@@ -39,7 +39,7 @@ endif()
 
 # Fetchcontent_Declare(
 #     Utils
-#     SOURCE_DIR "/home/wjlim/utils"
+#     GIT_REPOSITORY https://github.com/wjnlim/utils.git
 # )
 # FetchContent_MakeAvailable(Utils)
 
