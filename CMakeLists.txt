@@ -15,7 +15,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Wextra -Wno-unused-parameter)
 
 include(FetchContent)
-# TODO: change to fetch from github repo
+
 if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.28)
     Fetchcontent_Declare(
         Utils
