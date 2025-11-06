@@ -23,6 +23,32 @@
 * This project uses my [utils](https://github.com/wjnlim/utils.git) library. The CMake file will automatically fetch the utils project internally
 ---
 
+## Build and Installation
+
+Follow these steps to build and install the library:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/wjnlim/ep_engine.git
+
+# 2. Create a build directory
+mkdir ep_engine/build
+cd ep_engine/build
+
+# 3. Configure with CMake
+cmake -DCMAKE_INSTALL_PREFIX=<your install directory> ..
+
+# 4. Build and install the library
+cmake --build . --target install
+```
+
+## Usage Example
+To compile your program using this library (note that you must link the **pthread** library also):
+```bash
+gcc your_prog.c -o your_prog -I <your install directory>/include \
+  <your install directory>/lib/libep_engine.a -lpthread
+```
+
 ## Core Concepts
 
 ### `Epolled_fd`
