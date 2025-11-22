@@ -8,19 +8,21 @@
 ---
 
 ## Features
-* This project is developed with reference to the designs of Google’s gRPC, libevent, and nginx.
+* This project is developed with reference to the designs of **gRPC, libevent, and nginx**.
 * This is an **epoll-based event engine**.
 * Works in **edge-triggered mode**.
 * Applications using this engine must follow the recommended approach for edge-triggered mode described in the `epoll(7)` man page:
     1. Use **non-blocking file descriptors**.  
-       (For this engine, set nonblocking mode before creating an `Epolled_fd`.)
+       (For this engine, set fd to non-blocking mode before creating an `Epolled_fd`.)
     2. Wait for an event **only after** `read(2)` or `write(2)` return `EAGAIN`.  
        (For this engine, inside an event callback, continuously read/write the fd until `EAGAIN`,  
        and then (re)register the handler callback to get event notifications again using  
        `epdfd_notify_on_read()` or `epdfd_notify_on_writable()`.)
-* This project is mainly for personal use, not for production codes.\
-  Thus, the code may lack thorough testing, so please use it with caution.
-* This project uses my [utils](https://github.com/wjnlim/utils.git) library. The CMake file will automatically fetch the utils project internally
+* **Notes**
+  * This project is mainly for personal use, not for production codes.\
+    Thus, the code may lack thorough testing, so please use it with caution.
+  * This project uses my [utils](https://github.com/wjnlim/utils.git) library. The CMake file will automatically fetch the utils project internally
+  * This library depends on pthread, so you must link with **-lpthread**
 ---
 
 ## Core Concepts
